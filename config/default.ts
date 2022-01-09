@@ -5,7 +5,7 @@ dotenv.config();
 export default {
     ORIGIN: "http://localhost:3000",
     HOST: "localhost",
-    PORT: 4000,
+    PORT: process.env.PORT || 4000,
     EMAIL_TOKEN_TTL: "7d",
 
     GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
