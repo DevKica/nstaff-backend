@@ -52,6 +52,7 @@
         "mongoose": "^6.1.5",
         "nodemailer": "^6.7.2",
         "nodemon": "^2.0.15",
-        "sharp": "^0.29.3"
+        "sharp": "^0.29.3",
+        "ts-node": "^10.4.0"
     }
 }
