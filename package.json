@@ -5,7 +5,8 @@
     "main": "index.js",
     "scripts": {
         "start": "node dist/src/app.js",
-        "build": "tsc"
+        "build": "tsc",
+        "myScript": "nodemon src/app.ts"
     },
     "author": "",
     "license": "ISC",
