@@ -1,6 +1,6 @@
 import cors from "cors";
 import config from "config";
-import express from "express";
+import express, { Request, Response } from "express";
 import cookieParser from "cookie-parser";
 import router from "./routes/main_router";
 import limitter from "express-rate-limit";
@@ -31,6 +31,8 @@ app.use(fileUpload());
 app.use(deserializeUser);
 
 app.use(emailToLowerCase);
+
+app.get("/", (_: Request, res: Response) => res.send("HELLO"));
 
 app.use("/app", router);
 
