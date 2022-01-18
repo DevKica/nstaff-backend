@@ -6,6 +6,7 @@ const TEST_EMAIL = config.get<string>("TEST_EMAIL");
 const TEST_EMAIL_PASSWORD = config.get<string>("TEST_EMAIL_PASSWORD");
 const EMAIL_SECRET_TOKEN = config.get<string>("EMAIL_SECRET_TOKEN");
 const EMAIL_TOKEN_TTL = config.get<string>("EMAIL_TOKEN_TTL");
+const ORIGIN = config.get<string>("ORIGIN");
 
 const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
@@ -27,7 +28,7 @@ const emailData = (token: string, client_email: string, type: string) => {
         to: client_email,
         subject: "server",
         html: `Hello,${message}
-        <a href="http://localhost:3000/special/${type}/${token}"><button>click here</button></a>`,
+        <a href="${ORIGIN}/special/${type}/${token}"><button>click here</button></a>`,
     };
 };
 

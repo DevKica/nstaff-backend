@@ -32,7 +32,7 @@ app.use(deserializeUser);
 
 app.use(emailToLowerCase);
 
-app.get("/", (_: Request, res: Response) => res.send("HELLO"));
+app.get("/", (_: Request, res: Response) => res.send("Hi"));
 
 app.use("/app", router);
 
