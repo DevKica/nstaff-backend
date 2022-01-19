@@ -60,7 +60,7 @@ export async function updateWorkDayHandler(req: Request, res: Response) {
         const checkIfMontlyRateExists = await getSingleMonthlyRate({ userId, month: req.body.date.slice(0, 7) });
         if (!checkIfMontlyRateExists) return res.send(MONTHLY_RATE__DOES_NOT_EXISTS);
 
-        const updatedWorkDay = await updateWorkDay({ userId, _id: workDayId }, req.body);
+        const updatedWorkDay = await updateWorkDay({ userId, _id: workDayId }, { ...req.body, month: req.body.date.slice(0, 7), day: req.body.date.slice(-2) });
         if (!updatedWorkDay) return res.send(BAD_REQUEST);
 
         return res.send(SUCCESS);
