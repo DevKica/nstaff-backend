@@ -10,7 +10,6 @@ const ORIGIN = config.get<string>("ORIGIN");
 
 const transporter = nodemailer.createTransport({
     service: "hotmail",
-    secure: true,
     auth: {
         user: TEST_EMAIL,
         pass: TEST_EMAIL_PASSWORD,
