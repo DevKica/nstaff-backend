@@ -35,7 +35,7 @@ const deserializeUser = async (req: Request, res: Response, next: NextFunction) 
 
         const newAccessToken = signJWT({ ...omit(decodedRefresh, "exp", "iat", "canRefresh") }, MAIN_SECRET_TOKEN, ACCESS_TOKEN_TTL);
 
-        res.cookie(COOKIE_TYPE.ACCESS_TOKEN, newAccessToken, { sameSite: "strict", httpOnly: true, maxAge: MAX_AGE_TOKEN_COOKIE });
+        res.cookie(COOKIE_TYPE.ACCESS_TOKEN, newAccessToken, { sameSite: "none", secure: true, httpOnly: true, maxAge: MAX_AGE_TOKEN_COOKIE });
 
         res.locals.user = verifyJWT(newAccessToken, MAIN_SECRET_TOKEN).decoded;
 

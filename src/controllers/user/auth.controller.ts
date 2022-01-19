@@ -34,8 +34,8 @@ export async function createUserHandler(req: Request, res: Response) {
 
         if (!tokens) throw Error;
 
-        res.cookie(COOKIE_TYPE.ACCESS_TOKEN, tokens.accessToken, { sameSite: "strict", httpOnly: true, maxAge: MAX_AGE_TOKEN_COOKIE });
-        res.cookie(COOKIE_TYPE.REFRESH_TOKEN, tokens.refreshToken, { sameSite: "strict", httpOnly: true, maxAge: MAX_AGE_TOKEN_COOKIE });
+        res.cookie(COOKIE_TYPE.ACCESS_TOKEN, tokens.accessToken, { sameSite: "none", secure: true, httpOnly: true, maxAge: MAX_AGE_TOKEN_COOKIE });
+        res.cookie(COOKIE_TYPE.REFRESH_TOKEN, tokens.refreshToken, { sameSite: "none", secure: true, httpOnly: true, maxAge: MAX_AGE_TOKEN_COOKIE });
 
         return res.send(SUCCESS_USER_FORMAT(user));
     } catch (e: unknown) {
@@ -55,8 +55,8 @@ export async function loginHandler(req: Request, res: Response) {
 
         if (!tokens) throw Error;
 
-        res.cookie(COOKIE_TYPE.ACCESS_TOKEN, tokens.accessToken, { sameSite: "strict", httpOnly: true, maxAge: MAX_AGE_TOKEN_COOKIE });
-        res.cookie(COOKIE_TYPE.REFRESH_TOKEN, tokens.refreshToken, { sameSite: "strict", httpOnly: true, maxAge: MAX_AGE_TOKEN_COOKIE });
+        res.cookie(COOKIE_TYPE.ACCESS_TOKEN, tokens.accessToken, { sameSite: "none", secure: true, httpOnly: true, maxAge: MAX_AGE_TOKEN_COOKIE });
+        res.cookie(COOKIE_TYPE.REFRESH_TOKEN, tokens.refreshToken, { sameSite: "none", secure: true, httpOnly: true, maxAge: MAX_AGE_TOKEN_COOKIE });
 
         return res.send(SUCCESS_USER_FORMAT(user));
     } catch (e: unknown) {
