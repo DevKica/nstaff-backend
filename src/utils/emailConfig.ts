@@ -9,13 +9,11 @@ const EMAIL_TOKEN_TTL = config.get<string>("EMAIL_TOKEN_TTL");
 const ORIGIN = config.get<string>("ORIGIN");
 
 const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
+    service: "hotmail",
     auth: {
         user: TEST_EMAIL,
         pass: TEST_EMAIL_PASSWORD,
     },
-    secure: true,
 });
 
 const emailData = (token: string, client_email: string, type: string) => {
@@ -34,7 +32,13 @@ const emailData = (token: string, client_email: string, type: string) => {
 
 const sendEmailHandler = (tokenData: customEmailTokenFormat, client_email: string, type: string) => {
     const token = signJWT(tokenData, EMAIL_SECRET_TOKEN, EMAIL_TOKEN_TTL);
-    transporter.sendMail(emailData(token, client_email, type));
+    transporter.sendMail(emailData(token, client_email, type), function (error, info) {
+        if (error) {
+            console.log("NODE MAILER ERRO " + error);
+        } else {
+            console.log("Message sent: " + info.response);
+        }
+    });
 };
 
 export default sendEmailHandler;
