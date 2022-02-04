@@ -45,3 +45,5 @@ export const MONTHLY_RATE__DOES_NOT_EXISTS = messageFormat("You cant work day wi
 export const MONTHLY_RATE_EXISTS = messageFormat("You cant create monthly rate that already exists", 400);
 
 export const WORK_DAY_EXISTS = messageFormat("You cant create work day that already exists", 400);
+
+export const UPDATE_DAY_EXISTS = messageFormat("You cant update work day to day that already exists", 400);
