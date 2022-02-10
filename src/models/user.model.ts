@@ -45,7 +45,7 @@ const userModelSchema = new mongoose.Schema(
         name: { type: String, required: true },
         surname: { type: String, required: true },
         password: { type: String, required: true },
-        active: { type: Boolean, required: true, default: false },
+        active: { type: Boolean, required: true, default: true },
         isAdmin: { type: Boolean, required: true, default: false },
         profilePhotoPath: { type: String, required: true, default: defaultUserPhotoName },
         __v: { type: Number, select: false },
