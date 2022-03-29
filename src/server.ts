@@ -8,6 +8,7 @@ import fileUpload from "express-fileupload";
 import deserializeUser from "./middlewares/deserializeUser";
 import { emailToLowerCase } from "./middlewares/emailToLowerCase";
 import { tooManyRequestHandler } from "./utils/randomUtils";
+import trimmer from "./middlewares/trimmer";
 
 const ORIGIN = config.get<string>("ORIGIN");
 
@@ -25,6 +26,8 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(limitter({ windowMs: 5000, max: 50, handler: tooManyRequestHandler }));
+
+app.use(trimmer);
 
 app.use(fileUpload());
 
