@@ -1,4 +1,4 @@
-## 📱 Server side of [Nstaff](https://github.com/DevKica/nstaff-client)
+## 📱 Server side of [Nstaff](https://github.com/Pawel-Kica/nstaff-client)
 
 ### For more information, please follow the link in the first paragraph
 
